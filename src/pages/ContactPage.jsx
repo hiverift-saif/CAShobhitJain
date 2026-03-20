@@ -20,18 +20,77 @@ export default function ContactPage() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    let nextValue = value;
+    if (name === 'phone') {
+      nextValue = value.replace(/[^0-9+\-\s]/g, '');
+    }
+    setForm({ ...form, [name]: nextValue });
+    setError('');
   };
 
-  const handleSubmit = (e) => {
+  const isValid = () => {
+    if (!form.name.trim() || !form.email.trim() || !form.phone.trim() || !form.service.trim()) {
+      setError('Please fill in all required fields.');
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      setError('Please enter a valid email address.');
+      return false;
+    }
+
+    const phoneRegex = /^[0-9+\-\s]{7,20}$/;
+    if (!phoneRegex.test(form.phone)) {
+      setError('Please enter a valid phone number.');
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!isValid()) return;
+
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setError('');
+
+    try {
+      const response = await fetch('https://cashobhitjain.com/api/sendmail.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          message: form.message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send. Please try again.');
+      }
+
+      const data = await response.json?.();
+      const ok = data?.success ?? (response.status >= 200 && response.status < 300);
+      if (!ok) {
+        throw new Error(data?.message || 'Could not submit enquiry.');
+      }
+
       setSubmitted(true);
-    }, 1200);
+      setForm({ name: '', email: '', phone: '', service: '', message: '' });
+    } catch (err) {
+      console.error(err);
+      setError(typeof err === 'string' ? err : err.message || 'Error submitting message.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -116,6 +175,11 @@ export default function ContactPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {error && (
+                      <div className="rounded-xl border border-red-200 bg-red-50 text-red-700 px-4 py-3 text-sm font-medium">
+                        {error}
+                      </div>
+                    )}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label className="text-sm font-black uppercase text-[#0e2a5e] tracking-wide ml-1">Full Name *</label>
@@ -139,7 +203,7 @@ export default function ContactPage() {
                       <div className="space-y-2">
                         <label className="text-sm font-black uppercase text-[#0e2a5e] tracking-wide ml-1">Phone Number *</label>
                         <input
-                          name="phone" type="tel" required value={form.phone} onChange={handleChange}
+                          name="phone" type="tel" inputMode="tel" pattern="[0-9+\-\s]*" required value={form.phone} onChange={handleChange}
                           placeholder="+91 00000 00000"
                           className="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-5 py-4 text-slate-900 font-bold placeholder:text-slate-400 focus:bg-white focus:border-[#f4761c] focus:outline-none transition-all"
                         />

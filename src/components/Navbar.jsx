@@ -16,6 +16,7 @@ const navLinks = [
     ],
   },
   { label: 'Contact', path: '/contact' },
+  { label: 'Blog', path: '/blog' },
 ];
 
 export default function Navbar() {
@@ -57,7 +58,7 @@ export default function Navbar() {
           
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-4 group">
-            <img src={logoImg} alt="Logo" className="h-[52px] rounded-xl object-cover mix-blend-multiply" />
+            <img src={logoImg} alt="Logo" className="h-[78px] rounded-xl object-cover mix-blend-multiply" />
             <div className="flex flex-col">
               <span className="font-heading font-black text-2xl text-[#0e2a5e] leading-none">
                 CA Shobhit Jain
@@ -79,8 +80,8 @@ export default function Navbar() {
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
                   <button
-                    className={`flex items-center gap-1.5 font-bold text-[15px] transition-all ${
-                      isActive(link.path) || dropdownOpen ? 'text-[#f4761c]' : 'text-[#0e2a5e]/70'
+                    className={`flex items-center gap-1.5 font-bold text-[18px] transition-all ${
+                      isActive(link.path) || dropdownOpen ? 'text-[#f4761c]' : 'text-[#0e2a5e]/90'
                     }`}
                   >
                     {link.label}
@@ -107,8 +108,8 @@ export default function Navbar() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative font-bold text-[15px] transition-all pb-1 group ${
-                    isActive(link.path) ? 'text-[#f4761c]' : 'text-[#0e2a5e]/70 hover:text-[#0e2a5e]'
+                  className={`relative font-bold text-[18px] transition-all pb-1 group ${
+                    isActive(link.path) ? 'text-[#f4761c]' : 'text-[#0e2a5e]/90 hover:text-[#0e2a5e]'
                   }`}
                 >
                   {link.label}

@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -9,6 +9,8 @@ import VirtualCFOPage from './pages/VirtualCFOPage';
 import NRIServicesPage from './pages/NRIServicesPage';
 import LoansPage from './pages/LoansPage';
 import ContactPage from './pages/ContactPage';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 
 function Preloader({ visible }) {
   return (
@@ -106,6 +108,8 @@ export default function App() {
           <Route path="/services/nri" element={<NRIServicesPage />} />
           <Route path="/services/loans" element={<LoansPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:id" element={<BlogPostPage />} />
         </Routes>
       </main>
       <Footer />

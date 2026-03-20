@@ -163,7 +163,7 @@ export default function HomePage() {
         {/* Slide Controls */}
         <div className="absolute bottom-10 left-0 right-0 z-20 container-main flex items-center justify-between">
           {/* Dots */}
-          <div className="flex gap-2">
+          <div className="flex gap-2 ">
             {heroSlides.map((_, i) => (
               <button
                 key={i}
@@ -175,16 +175,21 @@ export default function HomePage() {
           </div>
           {/* Arrows */}
           <div className="flex gap-2">
+
+
+
+
+            
             <button
               onClick={prev}
-              className="w-11 h-11 border border-white/30 text-white flex items-center justify-center hover:bg-[#f4761c] hover:text-[#0e2a5e] hover:border-[#f4761c] transition-all duration-300"
+              className="w-11 h-11 border rounded-full border-white/30 text-white flex items-center justify-center hover:bg-[#f4761c] hover:text-[#0e2a5e] hover:border-[#f4761c] transition-all duration-300"
               aria-label="Previous"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={next}
-              className="w-11 h-11 border border-white/30 text-white flex items-center justify-center hover:bg-[#f4761c] hover:text-[#0e2a5e] hover:border-[#f4761c] transition-all duration-300"
+              className="w-11 h-11 border rounded-full border-white/30 text-white flex items-center justify-center hover:bg-[#f4761c] hover:text-[#0e2a5e] hover:border-[#f4761c] transition-all duration-300"
               aria-label="Next"
             >
               <ChevronRight size={20} />

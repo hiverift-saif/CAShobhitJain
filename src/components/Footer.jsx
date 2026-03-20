@@ -64,6 +64,7 @@ export default function Footer() {
                 { label: 'Virtual CFO', path: '/services/virtual-cfo' },
                 { label: 'NRI Services', path: '/services/nri' },
                 { label: 'Debt Solutions', path: '/services/loans' },
+                { label: 'Blog', path: '/blog' },
                 { label: 'Contact', path: '/contact' },
               ].map((item) => (
                 <li key={item.path}>
