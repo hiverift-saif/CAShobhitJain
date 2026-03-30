@@ -127,10 +127,20 @@ export default function BlogPostPage() {
                   SHARE THIS ARTICLE
                 </div>
                 <div className="flex items-center gap-3">
-                  {[Facebook, Twitter, Linkedin].map((Icon, i) => (
-                    <button key={i} className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-[#0e2a5e] hover:bg-[#f4761c] hover:text-white transition-all">
-                      <Icon size={20} />
-                    </button>
+                  {[
+                    { Icon: Facebook, url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}` },
+                    { Icon: Twitter, url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(blog.title)}` },
+                    { Icon: Linkedin, url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}` }
+                  ].map((item, i) => (
+                    <a 
+                      key={i} 
+                      href={item.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-[#0e2a5e] hover:bg-[#f4761c] hover:text-white transition-all"
+                    >
+                      <item.Icon size={20} />
+                    </a>
                   ))}
                 </div>
               </div>

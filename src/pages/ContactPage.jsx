@@ -135,8 +135,9 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 gap-5">
                 {[
                   { icon: <Phone size={24} />, label: 'Call Us', value: '+91 92209 55615', sub: 'Mon – Sat, 10am – 7pm IST', link: 'tel:+919220955615' },
-                  { icon: <Mail size={24} />, label: 'Email', value: 'Support Coming Soon', sub: 'WhatsApp for faster response' },
-                  { icon: <MapPin size={24} />, label: 'Our Office', value: '707, Star Plaza, M.G. Road', sub: 'Borivali East, Mumbai - 400066' },
+                  { icon: <Mail size={24} />, label: 'Office Email', value: 'office@cashobhitjain.com', sub: 'Send us your enquiry anytime', link: 'mailto:office@cashobhitjain.com' },
+                  { icon: <Mail size={24} />, label: 'Contact Email', value: 'contact@cashobhitjain.com', sub: 'General inquiries and support', link: 'mailto:contact@cashobhitjain.com' },
+                  { icon: <MapPin size={24} />, label: 'Our Office', value: '707, Star Plaza, M.G. Road', sub: 'Borivali East, Mumbai - 400066', link: 'https://maps.app.goo.gl/5Ed8YCLAw4R7Xxq28' },
                   { icon: <Globe size={24} />, label: 'Global Service', value: 'Serving Clients Worldwide', sub: 'India • UAE • USA • UK • Singapore' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-5 p-6 bg-slate-50 border border-slate-200 rounded-2xl group hover:bg-white hover:shadow-xl hover:border-[#f4761c]/30 transition-all duration-300">
@@ -249,7 +250,7 @@ export default function ContactPage() {
           <div className="rounded-[2.5rem] overflow-hidden border-[12px] border-slate-100 shadow-2xl h-[500px]">
             <iframe
               title="CA Shobhit Jain Office"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.1234!2d72.8596!3d19.2297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDEzJzQ2LjkiTiA3MsKwNTEnMzQuNiJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.125!2d72.859!3d19.229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0d1e564d735%3A0xc6226c6d59828d8b!2sStar%20Plaza%2C%20M%20G%20Road%2C%20near%20Raj%20Mahal%20Hotel%2C%20Borivali%20East%2C%20Mumbai%20400066!5e0!3m2!1sen!2sin!4v1711258661661!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}

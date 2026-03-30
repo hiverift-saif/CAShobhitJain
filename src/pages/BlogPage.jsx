@@ -16,7 +16,7 @@ const blogs = [
     id: 2,
     title: 'Tax Saving Strategies for NRIs: Maximize Your Returns',
     excerpt: 'Learn about the best tax-saving investment options available for Non-Resident Indians to optimize their financial portfolio.',
-    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://i.pinimg.com/736x/30/d7/25/30d7252986030f7782b45c2e435dcd2f.jpg',
     date: 'March 10, 2024',
     author: 'CA Shobhit Jain',
     category: 'NRI Services'
@@ -52,16 +52,16 @@ export default function BlogPage() {
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {blogs.map((blog, index) => (
-            <div 
-              key={blog.id} 
+            <div
+              key={blog.id}
               className="bg-white rounded-3xl overflow-hidden shadow-xl shadow-blue-900/5 group hover:shadow-2xl hover:shadow-blue-900/10 transition-all duration-500 reveal"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Image Section */}
               <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={blog.image} 
-                  alt={blog.title} 
+                <img
+                  src={blog.image}
+                  alt={blog.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute top-4 left-4">
@@ -83,19 +83,19 @@ export default function BlogPage() {
                     {blog.author}
                   </div>
                 </div>
-                
+
                 <h3 className="text-xl font-heading font-bold text-[#0e2a5e] mb-4 group-hover:text-[#f4761c] transition-colors line-clamp-2">
                   <Link to={`/blog/${blog.id}`}>
                     {blog.title}
                   </Link>
                 </h3>
-                
+
                 <p className="text-gray-600 mb-6 line-clamp-3 leading-relaxed">
                   {blog.excerpt}
                 </p>
-                
-                <Link 
-                  to={`/blog/${blog.id}`} 
+
+                <Link
+                  to={`/blog/${blog.id}`}
                   className="inline-flex items-center gap-2 text-[#0e2a5e] font-bold group/btn hover:text-[#f4761c] transition-colors"
                 >
                   Read More
@@ -108,8 +108,8 @@ export default function BlogPage() {
 
         {/* More Blog Button */}
         <div className="text-center reveal">
-          <Link 
-            to="/blog" 
+          <Link
+            to="/blog/"
             className="inline-flex items-center gap-3 bg-[#0e2a5e] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#f4761c] transition-all shadow-xl hover:shadow-orange-500/20 active:scale-95"
           >
             <BookOpen size={20} />

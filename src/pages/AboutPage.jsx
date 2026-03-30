@@ -45,7 +45,7 @@ export default function AboutPage() {
         </div>
         
         <h2 className="font-heading font-black text-[#0e2a5e] text-4xl md:text-5xl lg:text-6xl mb-8 leading-[1.1] tracking-tight">
-          A Decade of <br /> <span className="text-[#f4761c]">Financial Excellence.</span>
+          15+ Years of <br /> <span className="text-[#f4761c]">Financial Excellence.</span>
         </h2>
 
         <div className="space-y-6 text-slate-600 text-lg leading-relaxed mb-10">
@@ -63,7 +63,7 @@ export default function AboutPage() {
         {/* Stats Grid: Modern 2x2 Layout */}
         <div className="grid grid-cols-2 gap-4 md:gap-6">
           {[
-            { num: '10+', label: 'Years Experience' },
+            { num: '15+', label: 'Years Experience' },
             { num: '200+', label: 'Clients Served' },
             { num: 'Pan-India', label: 'Service Coverage' },
             { num: 'Global', label: 'NRI Support' },
@@ -88,7 +88,7 @@ export default function AboutPage() {
           
           {/* Floating High-Contrast Badge */}
           <div className="absolute -bottom-8 -right-4 md:-right-8 bg-[#0e2a5e] p-10 rounded-[2rem] shadow-2xl border-b-8 border-[#f4761c]">
-            <p className="font-heading font-black text-white text-5xl mb-1">10+</p>
+            <p className="font-heading font-black text-white text-5xl mb-1">15+</p>
             <p className="text-[#f4761c] text-xs font-bold uppercase tracking-widest leading-tight">
               Years of <br /> CFO Excellence
             </p>
@@ -124,14 +124,14 @@ export default function AboutPage() {
       </p>
     </div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
       {[
         {
           initials: 'SJ',
           name: 'CA Shobhit Jain',
           title: 'Founder & Principal Advisor',
           quals: ['Chartered Accountant', 'Company Secretary', 'DISA', 'B.Com'],
-          desc: 'Senior CA with deep expertise in Virtual CFO advisory, financial strategy and business structuring for growing companies. Known for practical, promoter-centric approach.',
+          desc: 'Senior CA with deep expertise in Virtual CFO advisory, financial strategy and business structuring for growing companies with 15+ years of experience.',
           expertise: ['CFO Advisory', 'Tax Planning', 'Business Structuring', 'NRI Services'],
           bg: 'from-[#f4761c] to-[#ff9d5c]',
           iconColor: 'text-[#0e2a5e]',
@@ -145,6 +145,16 @@ export default function AboutPage() {
           expertise: ['Labour Laws', 'MSME Recovery', 'Debt Recovery', 'Regulatory Compliance'],
           bg: 'from-[#0e2a5e] to-[#1e4ba1]',
           iconColor: 'text-white',
+        },
+        {
+          initials: 'SS',
+          name: 'CA Swati Shah',
+          title: 'International Tax & Compliance',
+          quals: ['Chartered Accountant'],
+          desc: 'Swati Shah is a Chartered Accountant handling US and UK accounting and tax compliance assignments for overseas clients. She partners with international clients and executes the work through her India-based team, delivering reliable, compliant, and cost-efficient outsourcing solutions.',
+          expertise: ['US Tax Compliance', 'UK Accounting', 'Outsourcing', 'International Tax'],
+          bg: 'from-[#f4761c] to-[#ff9d5c]',
+          iconColor: 'text-[#0e2a5e]',
         },
       ].map((p, i) => (
         <div 
