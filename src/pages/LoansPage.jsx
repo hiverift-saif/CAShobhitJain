@@ -114,7 +114,7 @@ export default function LoansPage() {
             <div className="reveal relative">
                <div className="bg-[#f4761c]/5 rounded-2xl p-4 md:p-8">
                   <img 
-                    src="/hero-loans.png" 
+                    src="https://i.pinimg.com/736x/b9/b6/0e/b9b60eb215193ce939ca6721601a846b.jpg" 
                     alt="Financial Advisory" 
                     className="rounded-2xl shadow-2xl w-full h-[400px] object-cover"
                   />

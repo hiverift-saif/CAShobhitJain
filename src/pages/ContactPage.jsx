@@ -136,7 +136,7 @@ export default function ContactPage() {
                 {[
                   { icon: <Phone size={24} />, label: 'Call Us', value: '+91 92209 55615', sub: 'Mon – Sat, 10am – 7pm IST', link: 'tel:+919220955615' },
                   { icon: <Mail size={24} />, label: 'Office Email', value: 'office@cashobhitjain.com', sub: 'Send us your enquiry anytime', link: 'mailto:office@cashobhitjain.com' },
-                  { icon: <Mail size={24} />, label: 'Contact Email', value: 'contact@cashobhitjain.com', sub: 'General inquiries and support', link: 'mailto:contact@cashobhitjain.com' },
+                  // { icon: <Mail size={24} />, label: 'Contact Email', value: 'contact@cashobhitjain.com', sub: 'General inquiries and support', link: 'mailto:contact@cashobhitjain.com' },
                   { icon: <MapPin size={24} />, label: 'Our Office', value: '707, Star Plaza, M.G. Road', sub: 'Borivali East, Mumbai - 400066', link: 'https://maps.app.goo.gl/5Ed8YCLAw4R7Xxq28' },
                   { icon: <Globe size={24} />, label: 'Global Service', value: 'Serving Clients Worldwide', sub: 'India • UAE • USA • UK • Singapore' },
                 ].map((item, i) => (

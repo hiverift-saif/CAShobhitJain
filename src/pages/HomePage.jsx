@@ -7,7 +7,8 @@ const heroSlides = [
   {
     id: 1,
     label: 'VIRTUAL CFO ADVISORY',
-    heading: 'STRATEGIC CFO ADVISORY FOR BUSINESSES.',
+    
+    heading: <>STRATEGIC CFO ADVISORY <br className="hidden md:block" /> FOR BUSINESSES.</>,
     subheading: 'Structured Financial Leadership Without Full-Time Cost',
     body: 'Structured financial leadership and India-focused compliance support to growing businesses. Our advisory approach integrates financial clarity, regulatory discipline, and practical decision support—without unnecessary complexity.',
     cta1: { label: 'Explore CFO Services', link: '/services/virtual-cfo' },
@@ -18,7 +19,7 @@ const heroSlides = [
   {
     id: 2,
     label: 'NRI FINANCIAL SERVICES',
-    heading: 'TRUSTED FINANCIAL AND COMPLIANCE SUPPORT FOR NRIS.',
+    heading: <>TRUSTED FINANCIAL AND <br className="hidden md:block" /> COMPLIANCE SUPPORT FOR NRIS.</>,
     subheading: 'India-Focused Advisory for Non-Resident Indians',
     body: 'Reliable compliance support to Non-Resident Indians across UAE, USA, UK, Canada and Singapore. Our advisory approach integrates financial clarity and practical decision support.',
     cta1: { label: 'NRI Services', link: '/services/nri' },
@@ -29,12 +30,12 @@ const heroSlides = [
   {
     id: 3,
     label: 'LOANS & DEBT SOLUTIONS',
-    heading: 'Smart Loan Advisory for Individuals & Businesses.',
+    heading: <>Smart Loan Advisory for <br className="hidden md:block" /> Individuals & Businesses.</>,
     subheading: 'Home Loans · Working Capital · Debt Structuring',
     body: 'Lender-agnostic financial advisory with access to leading banks, NBFCs and HFCs. Get the best structure with full transparency and no hidden charges.',
     cta1: { label: 'Explore Loan Services', link: '/services/loans' },
     cta2: { label: 'Get Free Consultation', link: '/contact' },
-    image: '/hero-loans.png',
+    image: 'https://i.pinimg.com/736x/a3/e7/2f/a3e72f7d9f7a938b33386403282b96ab.jpg',
     stat: { label1: '₹500Cr+', label2: 'Loans Facilitated' },
   },
 ];
@@ -79,130 +80,171 @@ export default function HomePage() {
     setTimeout(() => setAnimating(false), 700);
   };
 
-  const next = () => goTo((current + 1) % heroSlides.length);
-  const prev = () => goTo((current - 1 + heroSlides.length) % heroSlides.length);
+  const next = () => {
+    goTo((current + 1) % heroSlides.length);
+  };
+
+  const prev = () => {
+    goTo((current - 1 + heroSlides.length) % heroSlides.length);
+  };
 
   useEffect(() => {
-    timerRef.current = setInterval(next, 6000);
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % heroSlides.length);
+    }, 6000);
     return () => clearInterval(timerRef.current);
-  }, [current]);
+  }, []);
 
   const slide = heroSlides[current];
 
   return (
     <div className="bg-[#f0f5ff]">
-      {/* ===== SECTION 1: HERO CAROUSEL ===== */}
-      <section className="relative w-full overflow-hidden flex flex-col min-h-screen" style={{ minHeight: '100vh' }}>
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-          style={{ backgroundImage: `url(${slide.image})` }}
-        />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0e2a5e]/90 via-[#0e2a5e]/70 to-transparent" />
+{/* ===== HERO SECTION ===== */}
+<section className="relative w-full min-h-[600px] md:min-h-screen overflow-hidden flex items-center">
 
-        {/* Content */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center py-32 md:py-40">
-          <div className="container-main px-4">
-            <div className="max-w-[1500px] text-left ml-0">
-              <span
-                key={`label-${current}`}
-                className="section-label animate-fade-in inline-block"
-              >
-                {slide.label}
-              </span>
-              <h1
-                key={`h1-${current}`}
-                className="font-heading font-black text-white text-4xl md:text-5xl lg:text-[62px] leading-tight mb-4 animate-slide-up"
-              >
-                {slide.heading}
-              </h1>
-              <p
-                key={`sub-${current}`}
-                className="text-[#f4761c] text-lg md:text-xl font-semibold mb-4 animate-fade-in"
-              >
-                {slide.subheading}
-              </p>
-              <p
-                key={`body-${current}`}
-                className="text-gray-300 text-base md:text-lg max-w-5xl mb-8 leading-relaxed animate-fade-in"
-              >
-                {slide.body}
-              </p>
-              <div className="flex flex-wrap gap-3 sm:gap-4">
-                <Link to={slide.cta1.link} className="btn-primary rounded-full px-5 sm:px-6 py-3 text-sm sm:text-base font-bold hover:bg-[#f4761c] hover:text-[#0e2a5e] transition-all duration-300 flex items-center gap-2">
-                  {slide.cta1.label} <ArrowRight size={16} />
-                </Link>
-                <Link
-                  to={slide.cta2.link}
-                  className="border-2 border-white text-white px-5 sm:px-6 py-3 text-sm sm:text-base font-semibold hover:bg-white hover:text-[#0e2a5e] transition-all duration-300 flex items-center gap-2 rounded-full"
-                >
-                  {slide.cta2.label}
-                </Link>
-              </div>
+  {/* ===== Background Slides ===== */}
+  <div className="absolute inset-0 overflow-hidden">
 
-              {/* Stats box */}
-              <div className="mt-8 sm:mt-12 grid grid-cols-2 md:inline-flex items-center gap-4 sm:gap-8 bg-white/10 backdrop-blur-sm border border-white/20 px-6 sm:px-8 py-4 sm:py-5 rounded-3xl md:rounded-full animate-fade-in w-full md:w-auto">
-                <div className="text-left">
-                  <p className="text-[#f4761c] font-heading font-black text-xl sm:text-2xl">15+</p>
-                  <p className="text-gray-300/60 text-[10px] uppercase tracking-wider">Years Experience</p>
-                </div>
-                <div className="hidden md:block w-px h-10 bg-white/20" />
-                <div className="text-left">
-                  <p className="text-[#f4761c] font-heading font-black text-xl sm:text-2xl">200+</p>
-                  <p className="text-gray-300/60 text-[10px] uppercase tracking-wider">Clients Served</p>
-                </div>
-                <div className="hidden md:block w-px h-10 bg-white/20" />
-                <div className="text-left col-span-2 md:col-auto">
-                  <p className="text-[#f4761c] font-heading font-black text-xl sm:text-2xl">3</p>
-                  <p className="text-gray-300/60 text-[10px] uppercase tracking-wider">Service Verticals</p>
-                </div>
-              </div>
-            </div>
+    {heroSlides.map((s, i) => (
+      <div
+        key={i}
+        className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+          i === current ? "opacity-100 z-10" : "opacity-0"
+        }`}
+        style={{ backgroundImage: `url(${s.image})` }}
+      />
+    ))}
+
+  </div>
+
+  {/* ===== Overlay ===== */}
+  <div className="absolute inset-0 bg-gradient-to-r from-[#0e2a5e]/95 via-[#0e2a5e]/85 to-[#0e2a5e]/40 z-10"/>
+
+  {/* ===== Decorative Glow ===== */}
+  <div className="absolute -top-40 -left-40 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-[#f4761c]/10 blur-[100px] md:blur-[120px] rounded-full z-10"/>
+  <div className="absolute bottom-0 right-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-[#1e4a9e]/20 blur-[100px] md:blur-[120px] rounded-full z-10"/>
+
+  {/* ===== Content ===== */}
+  <div className="relative z-20 w-full pt-32 pb-16 md:py-28">
+    <div className="container-main px-4">
+
+      <div className="max-w-[1500px]">
+
+        {/* Label */}
+        <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-md px-3 md:px-4 py-1 md:py-1.5 rounded-full text-[10px] md:text-xs tracking-widest text-[#f4761c] font-bold uppercase mb-4 md:mb-6">
+          {heroSlides[current].label}
+        </span>
+
+        {/* Heading */}
+        <h1 className="font-heading font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-[1.15] md:leading-[1.1] tracking-tight mb-4 md:mb-6">
+          {heroSlides[current].heading}
+        </h1>
+
+        {/* Subheading */}
+        <div className="mb-4 md:mb-6">
+          <p className="inline-block bg-[#f4761c]/10 border border-[#f4761c]/30 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-[#f4761c] text-xs sm:text-sm md:text-base font-semibold">
+            {heroSlides[current].subheading}
+          </p>
+        </div>
+
+        {/* Body */}
+        <p className="text-gray-200 text-sm md:text-lg max-w-xl leading-relaxed mb-6 md:mb-8 line-clamp-3 md:line-clamp-none">
+          {heroSlides[current].body}
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-row items-center gap-2 sm:gap-4 mb-8 md:mb-10">
+
+          <Link
+            to={heroSlides[current].cta1.link}
+            className="flex-1 sm:flex-none bg-[#f4761c] text-white px-3 sm:px-6 py-2.5 sm:py-3.5 rounded-full font-bold flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg shadow-[#f4761c]/30 hover:scale-[1.04] transition text-[11px] sm:text-base whitespace-nowrap"
+          >
+            {heroSlides[current].cta1.label}
+            <ArrowRight size={14} className="sm:w-5 sm:h-5"/>
+          </Link>
+
+          <Link
+            to={heroSlides[current].cta2.link}
+            className="flex-1 sm:flex-none border border-white/40 text-white px-3 sm:px-6 py-2.5 sm:py-3.5 rounded-full backdrop-blur-md hover:bg-white hover:text-[#0e2a5e] transition font-bold text-center text-[11px] sm:text-base whitespace-nowrap"
+          >
+            {heroSlides[current].cta2.label}
+          </Link>
+
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 md:flex items-center gap-2 sm:gap-8 bg-white/5 md:bg-white/10 backdrop-blur-xl border border-white/10 md:border-white/20 rounded-2xl p-4 md:px-8 md:py-5 w-full md:w-fit shadow-2xl">
+
+          <div className="text-center md:text-left">
+            <p className="text-[#f4761c] text-lg md:text-2xl font-black">15+</p>
+            <p className="text-gray-300 text-[9px] md:text-xs uppercase tracking-wider">
+              Years Exp.
+            </p>
           </div>
-        </div>
 
-        {/* Slide Controls */}
-        <div className="absolute bottom-6 sm:bottom-10 left-0 right-0 z-20">
-          <div className="container-main px-4 flex items-center justify-between">
-            {/* Dots */}
-            <div className="flex gap-2 ">
-              {heroSlides.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goTo(i)}
-                  className={`h-1 rounded-full transition-all duration-300 ${i === current ? 'w-10 bg-[#f4761c]' : 'w-4 bg-white/40'}`}
-                  aria-label={`Slide ${i + 1}`}
-                />
-              ))}
-            </div>
-            {/* Arrows */}
-            <div className="flex gap-2">
-              <button
-                onClick={prev}
-                className="w-11 h-11 border rounded-full border-white/30 text-white flex items-center justify-center hover:bg-[#f4761c] hover:text-[#0e2a5e] hover:border-[#f4761c] transition-all duration-300"
-                aria-label="Previous"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <button
-                onClick={next}
-                className="w-11 h-11 border rounded-full border-white/30 text-white flex items-center justify-center hover:bg-[#f4761c] hover:text-[#0e2a5e] hover:border-[#f4761c] transition-all duration-300"
-                aria-label="Next"
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
+          <div className="hidden md:block w-px h-8 bg-white/20"></div>
+
+          <div className="text-center md:text-left border-l border-white/10 md:border-none pl-2 md:pl-0">
+            <p className="text-[#f4761c] text-lg md:text-2xl font-black">200+</p>
+            <p className="text-gray-300 text-[9px] md:text-xs uppercase tracking-wider">
+              Clients
+            </p>
           </div>
+
+          <div className="hidden md:block w-px h-8 bg-white/20"></div>
+
+          <div className="text-center md:text-left border-l border-white/10 md:border-none pl-2 md:pl-0">
+            <p className="text-[#f4761c] text-lg md:text-2xl font-black">3</p>
+            <p className="text-gray-300 text-[9px] md:text-xs uppercase tracking-wider">
+              Services
+            </p>
+          </div>
+
         </div>
 
-        {/* Slide number */}
-        <div className="absolute top-10 right-10 z-20 text-white/50 text-sm font-medium hidden md:block">
-          <span className="text-[#f4761c] font-bold text-lg">{String(current + 1).padStart(2, '0')}</span>
-          <span className="mx-1">/</span>
-          {String(heroSlides.length).padStart(2, '0')}
-        </div>
-      </section>
+      </div>
+
+    </div>
+  </div>
+
+  {/* ===== Arrow Navigation ===== */}
+  {/* On mobile, hidden or positioned at bottom corners */}
+  <div className="absolute bottom-6 md:inset-y-0 left-0 right-0 flex items-center justify-between px-4 md:px-6 z-30">
+
+    <button
+      onClick={prev}
+      className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-md border border-white/30 text-white flex items-center justify-center rounded-full hover:bg-[#f4761c] hover:border-[#f4761c] transition"
+    >
+      <ChevronLeft size={20} className="md:w-6 md:h-6"/>
+    </button>
+
+    <button
+      onClick={next}
+      className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-md border border-white/30 text-white flex items-center justify-center rounded-full hover:bg-[#f4761c] hover:border-[#f4761c] transition"
+    >
+      <ChevronRight size={20} className="md:w-6 md:h-6"/>
+    </button>
+
+  </div>
+
+  {/* ===== Dots ===== */}
+  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-30 md:bottom-8">
+
+    {heroSlides.map((_, i) => (
+
+      <button
+        key={i}
+        onClick={() => goTo(i)}
+        className={`h-2 rounded-full transition-all duration-300 ${
+          i === current ? "w-8 bg-[#f4761c]" : "w-2 bg-white/40"
+        }`}
+      />
+
+    ))}
+
+  </div>
+
+</section>
 
       {/* ===== SECTION 2: SERVICES OVERVIEW (Improved) ===== */}
       <section className="py-24 bg-slate-50 relative overflow-hidden">
@@ -338,7 +380,7 @@ export default function HomePage() {
                 initials: 'SS',
                 name: 'CA Swati Shah',
                 designations: ['Chartered Accountant', 'International Tax'],
-                desc: 'Specialist in US & UK tax compliance, providing cost-efficient and reliable accounting solutions for international clients.',
+                desc: 'Chartered Accountant handling US and UK accounting and tax compliance assignments for overseas clients. She partners with international clients and executes the work through her India-based team, delivering reliable, compliant, and cost-efficient outsourcing solutions',
                 iconBg: 'from-[#0e2a5e] to-[#1e4a9e]',
               },
             ].map((person, i) => (
@@ -371,7 +413,7 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  <p className="text-slate-500 text-base md:text-lg leading-relaxed font-medium">
+                  <p className="text-slate-500 text-base md:text-lg leading-relaxed font-medium text-left">
                     "{person.desc}"
                   </p>
                 </div>

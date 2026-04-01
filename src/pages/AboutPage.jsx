@@ -151,7 +151,7 @@ export default function AboutPage() {
           name: 'CA Swati Shah',
           title: 'International Tax & Compliance',
           quals: ['Chartered Accountant'],
-          desc: 'Swati Shah is a Chartered Accountant handling US and UK accounting and tax compliance assignments for overseas clients. She partners with international clients and executes the work through her India-based team, delivering reliable, compliant, and cost-efficient outsourcing solutions.',
+          desc: ' Swati Shah is a Chartered Accountant handling US and UK accounting and tax compliance assignments for overseas clients. She partners with international clients and executes the work through her India-based team, delivering reliable, compliant, and cost-efficient outsourcing solutions',
           expertise: ['US Tax Compliance', 'UK Accounting', 'Outsourcing', 'International Tax'],
           bg: 'from-[#f4761c] to-[#ff9d5c]',
           iconColor: 'text-[#0e2a5e]',

@@ -49,7 +49,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-[9999] transition-all duration-500 ${
         scrolled 
-          ? 'bg-white/90 backdrop-blur-lg py-3 shadow-lg border-b border-slate-200' 
+          ? 'bg-white backdrop-blur-lg py-3 shadow-lg border-b border-slate-200' 
           : 'bg-[#f0f5ff] py-5 border-b border-transparent'
       }`}
     >
