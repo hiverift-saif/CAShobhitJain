@@ -109,7 +109,8 @@ export default function BlogPage() {
         {/* More Blog Button */}
         <div className="text-center reveal">
           <Link
-            to="/blog/"
+            to="https://cashobhitjain.com/blog"
+            target='_blank'
             className="inline-flex items-center gap-3 bg-[#0e2a5e] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#f4761c] transition-all shadow-xl hover:shadow-orange-500/20 active:scale-95"
           >
             <BookOpen size={20} />

@@ -107,10 +107,11 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mb-1">Office</p>
-                  <a href="https://maps.app.goo.gl/5Ed8YCLAw4R7Xxq28" target="_blank" rel="noopener noreferrer" className="text-slate-200 text-sm leading-relaxed hover:text-[#f4761c] transition-colors">
-                    707, Star Plaza, M.G. Road,<br />
-                    Borivali East, Mumbai - 400066
+                  <a href="https://maps.app.goo.gl/CZh3jxAFfUDaTTjaA" target="_blank" rel="noopener noreferrer" className="text-slate-200 text-sm leading-relaxed hover:text-[#f4761c] transition-colors">
+                       Star Plaza, 707, Mahatma Gandhi Rd, Chinchpada,<br />
+                       Borivali East, Mumbai, Maharashtra 400066
                   </a>
+        
                 </div>
               </li>
               <li className="flex gap-4">
